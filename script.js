@@ -3,6 +3,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const hero = document.querySelector('.hero');
 const image = document.querySelector('.hero-image');
 
+if (image) {
+  image.style.backgroundImage = "url('aevora-reveal-hero.png')";
+}
+
 if (hero && image && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   hero.addEventListener('pointermove', (event) => {
     const x = (event.clientX / window.innerWidth - 0.5) * 4;
