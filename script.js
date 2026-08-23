@@ -4,7 +4,7 @@ const video = document.getElementById('reveal-video');
 const panels = [...document.querySelectorAll('.story-panel')];
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const VIDEO_URL = 'https://dnznrvs05pmza.cloudfront.net/veo3.1/projects/vertex-ai-claude-431722/locations/us-central1/publishers/google/models/veo-3.1-generate-001/operations/f58e1038-ffb9-4173-9dbb-aa4864529a74/The_start_frame_and_end_frame_define_the_exact_same_archaeol.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjlmMGExNTM0NGU5NWNkYyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4NzU3NTEyM30.bslkc8BnwImIqvc9dT1a4-SiOTncyopzQu_Y2lhOD70';
+const VIDEO_URL = 'https://dnznrvs05pmza.cloudfront.net/veo3.1/projects/vertex-ai-claude-431722/locations/us-central1/publishers/google/models/veo-3.1-generate-001/operations/7845b534-088d-4627-b103-d424542cb8a2/The_supplied_start_and_end_frames_define_the_exact_same_arch.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiODVjZGMwZDY5ZGZiMTc5NyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4NzYyNTE3NH0.IGxLoVC633odBJ9RlGqzd4SzUb3mLjahwcGtYCyTmkE';
 video.src = VIDEO_URL;
 video.pause();
 
@@ -42,12 +42,11 @@ function seekVideo(now) {
   const reveal = triangularReveal(pageProgress());
   targetTime = reveal * Math.max(0, video.duration - 0.04);
   const difference = targetTime - video.currentTime;
-  if (Math.abs(difference) < 0.045) return;
-  if (now - lastSeekAt < 55) return;
-  const nextTime = video.currentTime + difference * 0.42;
+  if (Math.abs(difference) < 0.035) return;
+  if (now - lastSeekAt < 45) return;
+  const nextTime = video.currentTime + difference * 0.34;
   try {
-    if (typeof video.fastSeek === 'function') video.fastSeek(clamp(nextTime, 0, video.duration - 0.02));
-    else video.currentTime = clamp(nextTime, 0, video.duration - 0.02);
+    video.currentTime = clamp(nextTime, 0, video.duration - 0.02);
   } catch (_) {}
   lastSeekAt = now;
 }
