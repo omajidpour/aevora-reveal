@@ -4,7 +4,7 @@ const video = document.getElementById('reveal-video');
 const panels = [...document.querySelectorAll('.story-panel')];
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const VIDEO_URL = 'https://dnznrvs05pmza.cloudfront.net/veo3.1/projects/vertex-ai-claude-431722/locations/us-central1/publishers/google/models/veo-3.1-generate-001/operations/197621e3-8a1f-4250-8976-e78a7f492f7b/Preserve_the_exact_composition__lighting__colour__archaeolog.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiOTIwYjQ4NGFjNzQ5NTgyNyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4NzYxMTMzOH0.FnzYJBZtX19zUcu2fF8vQzPVmzwcuskuwWKxiM2X3rk';
+const VIDEO_URL = 'https://dnznrvs05pmza.cloudfront.net/veo3.1/projects/vertex-ai-claude-431722/locations/us-central1/publishers/google/models/veo-3.1-generate-001/operations/f58e1038-ffb9-4173-9dbb-aa4864529a74/The_start_frame_and_end_frame_define_the_exact_same_archaeol.mp4?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjlmMGExNTM0NGU5NWNkYyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc4NzU3NTEyM30.bslkc8BnwImIqvc9dT1a4-SiOTncyopzQu_Y2lhOD70';
 video.src = VIDEO_URL;
 video.pause();
 
@@ -21,8 +21,9 @@ function triangularReveal(progress) {
   return 1 - Math.abs(phase * 2 - 1);
 }
 
-let desiredTime = 0;
 let raf = 0;
+let targetTime = 0;
+let lastSeekAt = 0;
 
 function updatePanels() {
   const mid = innerHeight / 2;
@@ -36,16 +37,24 @@ function updatePanels() {
   panels.forEach(panel => panel.classList.toggle('is-active', panel === closest));
 }
 
-function seekVideo() {
+function seekVideo(now) {
   if (!video.duration || reduced) return;
   const reveal = triangularReveal(pageProgress());
-  desiredTime = reveal * Math.max(0, video.duration - 0.05);
-  if (Math.abs(video.currentTime - desiredTime) > 0.025) video.currentTime = desiredTime;
+  targetTime = reveal * Math.max(0, video.duration - 0.04);
+  const difference = targetTime - video.currentTime;
+  if (Math.abs(difference) < 0.045) return;
+  if (now - lastSeekAt < 55) return;
+  const nextTime = video.currentTime + difference * 0.42;
+  try {
+    if (typeof video.fastSeek === 'function') video.fastSeek(clamp(nextTime, 0, video.duration - 0.02));
+    else video.currentTime = clamp(nextTime, 0, video.duration - 0.02);
+  } catch (_) {}
+  lastSeekAt = now;
 }
 
-function update() {
+function update(now) {
   updatePanels();
-  seekVideo();
+  seekVideo(now || performance.now());
   raf = 0;
 }
 
@@ -55,6 +64,7 @@ function requestUpdate() {
 
 video.addEventListener('loadedmetadata', () => {
   video.pause();
+  video.currentTime = Math.min(video.duration * 0.58, video.duration - 0.02);
   requestUpdate();
 });
 video.addEventListener('canplay', requestUpdate);
