@@ -21,6 +21,7 @@ backgroundVideo.setAttribute('webkit-playsinline', '');
 menu.addEventListener('click', () => {
   const open = menu.getAttribute('aria-expanded') !== 'true';
   menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? 'Close' : 'Menu';
   nav.classList.toggle('is-open', open);
 });
 
@@ -41,6 +42,7 @@ document.addEventListener('click', (event) => {
 nav.addEventListener('click', (event) => {
   if (!event.target.closest('a')) return;
   menu.setAttribute('aria-expanded', 'false');
+  menu.textContent = 'Menu';
   nav.classList.remove('is-open');
   projectsButton.setAttribute('aria-expanded', 'false');
   projectsDropdown.classList.remove('is-open');
@@ -89,7 +91,7 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden) playBackground();
 });
 
-['touchstart', 'pointerdown', 'scroll'].forEach((eventName) => {
+['click', 'scroll'].forEach((eventName) => {
   addEventListener(eventName, resumeBackground, { passive: true });
 });
 
