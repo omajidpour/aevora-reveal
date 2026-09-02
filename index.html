@@ -1,39 +1,38 @@
+/opt/homebrew/Library/Homebrew/cmd/shellenv.sh: line 18: /bin/ps: Operation not permitted
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="The Aevora Initiative supports ambitious archaeological research and brings its discoveries to a wider public.">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="theme-color" content="#d8c7a8">
   <title>the aevora initiative</title>
   <link rel="icon" href="aevora-monogram.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="aevora-revealed.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="image" href="stills/artefact-01-tablet-v2-covered.png" fetchpriority="high">
+  <link rel="preload" as="video" href="previews/aevora-1080-continuous-artefact-loop-preview.mp4" type="video/mp4">
+  <link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="The Aevora Initiative home"><img src="aevora-monogram.png" alt=""><span>the aevora initiative</span></a>
+    <a class="brand" href="#top" aria-label="The Aevora Initiative home"><img class="brand-mark" src="aevora-monogram.png" alt=""><span class="brand-name">the aevora initiative</span></a>
     <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav"><a href="#about">About</a><a href="#research">Research projects</a><a href="#contact">Contact</a></nav>
+    <nav id="site-nav"><a href="#top">Home</a><a href="#about">About</a><a href="#mission">Mission</a><div class="nav-dropdown"><a class="projects-link" href="#research">Projects</a><div class="dropdown-menu"><a href="#lagash"><strong>Lagash</strong><small>Ancient Sumer</small></a></div></div><a href="#news">News</a><a href="#contact">Contact</a></nav>
   </header>
 
   <main id="top">
     <div class="reveal-stage" aria-hidden="true">
-      <video id="cover-video" class="motion-video is-visible" muted playsinline preload="auto" poster="aevora-revealed.jpg">
-        <source src="aevora-cover-mobile.mp4" type="video/mp4" media="(max-width: 850px)">
-        <source src="aevora-cover.mp4" type="video/mp4">
-      </video>
-      <video id="reveal-video" class="motion-video" muted playsinline preload="metadata" poster="aevora-covered.jpg">
-        <source src="aevora-reveal-mobile.mp4" type="video/mp4" media="(max-width: 850px)">
-        <source src="aevora-reveal.mp4" type="video/mp4">
+      <video id="background-video" class="motion-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="stills/artefact-01-tablet-v2-covered.png">
+        <source src="previews/aevora-1080-continuous-artefact-loop-preview.mp4" type="video/mp4">
       </video>
       <div class="reveal-shade"></div>
     </div>
+    <div class="site-copyright">© <span id="main-year"></span> The Aevora Initiative</div>
 
-    <section class="story-panel hero-panel" data-reveal=".18">
+    <section class="story-panel hero-panel">
       <div class="story-copy">
         <h1>Advancing the discovery<br>of our shared past.</h1>
         <span class="rule"></span>
@@ -42,19 +41,21 @@
       <a class="scroll-cue" href="#about"><span>Scroll to explore</span><i></i></a>
     </section>
 
-    <section class="story-panel" id="about" data-reveal=".78"><div class="story-copy"><span class="eyebrow">About</span><h2>Archaeology reveals how societies began, changed and endured.</h2><p>The Aevora Initiative exists to widen the sources of support available to archaeology. It develops new ways to fund ambitious research, build wider engagement with the field and create long-term support for discovery.</p><div class="quiet-note"><span>Rooted in Cambridge</span><p>The initiative grew out of the University of Cambridge and a conviction that important archaeological research needs new sources of long-term support.</p></div></div></section>
+    <section class="story-panel about-panel" id="about" data-video-end="18"><div class="story-copy"><span class="eyebrow">About</span><h2>Archaeology reveals how societies began, changed and endured.</h2><p>The Aevora Initiative exists to widen the sources of support available to archaeology. Rooted in Cambridge, it develops new ways to fund ambitious research, build wider engagement with the field and create long-term support for discovery.</p><div class="quiet-note"><span>The name</span><p><strong>Aevora</strong> draws inspiration from the Latin <i>aevum</i>—eternity and the enduring passage of time—and <i>aura</i>—a presence that can be felt. Together, they express the enduring presence of our deep history.</p></div><p class="closing">Archaeology brings that presence into view.</p></div></section>
 
-    <section class="story-panel" data-reveal=".06"><div class="story-copy"><span class="eyebrow">The name</span><h2><i>Aevum</i> · Eternity<br><i>Aura</i> · Presence</h2><p><strong>Aevora</strong> draws inspiration from the Latin <i>aevum</i>, evoking eternity and the enduring passage of time, and <i>aura</i>, a presence that can be felt.</p><p>Together, they express the enduring presence of our deep history. The past is not simply behind us. It remains present in landscapes, objects and ideas that have endured across millennia.</p><p class="closing">Archaeology brings that presence into view.</p></div></section>
+    <section class="story-panel" id="mission" data-video-end="21"><div class="story-copy"><span class="eyebrow">Mission</span><h2>To expand what archaeology can discover—and who it can reach.</h2><p>Aevora’s mission is to bring new, long-term support to archaeological research of exceptional intellectual and cultural value.</p><p>By connecting scholarship with philanthropy, partnerships and public engagement, we aim to help important discoveries move beyond the limits of conventional funding and become part of a wider shared understanding of the past.</p><div class="quiet-note"><span>Our ambition</span><p>More freedom to investigate. More continuity for research. More people connected to what archaeology reveals.</p></div></div></section>
 
-    <section class="story-panel" data-reveal=".68"><div class="story-copy"><span class="eyebrow">The approach</span><div class="approach-list"><div><span>01</span><h3>Research</h3><p>Support ambitious university-led archaeological projects capable of materially advancing knowledge.</p></div><div><span>02</span><h3>Philanthropy</h3><p>Build long-term support around research with clear purpose and lasting intellectual value.</p></div><div><span>03</span><h3>Partnerships</h3><p>Develop thoughtful collaborations with museums, cultural institutions, brands and private capital.</p></div><div><span>04</span><h3>Awareness</h3><p>Bring archaeological discoveries to broader audiences through events, storytelling and cultural engagement.</p></div></div></div></section>
+    <section class="story-panel" data-video-end="24"><div class="story-copy"><span class="eyebrow">The approach</span><div class="approach-list"><div><span>01</span><h3>Research</h3><p>Support ambitious university-led archaeological projects capable of materially advancing knowledge.</p></div><div><span>02</span><h3>Philanthropy</h3><p>Build long-term support around research with clear purpose and lasting intellectual value.</p></div><div><span>03</span><h3>Partnerships</h3><p>Develop thoughtful collaborations with museums, cultural institutions, brands and private capital.</p></div><div><span>04</span><h3>Awareness</h3><p>Bring archaeological discoveries to broader audiences through events, storytelling and cultural engagement.</p></div></div></div></section>
 
-    <section class="story-panel" data-reveal=".12"><div class="story-copy founder-copy"><span class="eyebrow">Founded by</span><h2>Omid Majidpour</h2><p>Omid trained as an archaeologist at the University of Cambridge, where his research focused on the ancient Near East, following a 15-year career across investment management, private equity and financial markets.</p><p>The Aevora Initiative brings these experiences together to develop new sources of funding, visibility and long-term support for archaeological research.</p></div></section>
+    <section class="story-panel" id="research" data-video-end="30"><div class="story-copy"><span class="eyebrow">Projects</span><h2>Backing research with the potential to change what we know.</h2><p>Aevora identifies ambitious, academically rigorous archaeological projects where additional support can unlock a meaningful next stage of discovery.</p><p>We look for work with clear research questions, strong institutional leadership and the potential to generate knowledge of lasting importance. Our aim is to help provide the patient funding, partnerships and public visibility that allow exceptional projects to progress beyond conventional constraints.</p><div class="quiet-note"><span>What we aim to unlock</span><p>New fieldwork, specialist analysis, emerging technologies, the publication of discoveries and wider engagement with the histories they reveal.</p></div></div></section>
 
-    <section class="story-panel" id="research" data-reveal=".82"><div class="story-copy"><span class="eyebrow">Research project 01</span><h2>Ancient Sumerians</h2><p class="location">Lagash, Southern Iraq</p><p>The Lagash Archaeological Project is uncovering one of the great urban centres of early Mesopotamia and illuminating the lives of the people who shaped one of the world's earliest cities.</p><div class="quiet-note"><p>Research led by the University of Cambridge and the University of Pennsylvania.</p></div></div></section>
+    <section class="story-panel" id="lagash" data-video-end="35.9"><div class="story-copy"><span class="eyebrow">First project</span><h2>Ancient Sumerians</h2><p class="location">Lagash, Southern Iraq</p><p>The first project Aevora is developing support around is the Lagash Archaeological Project, which is uncovering one of the great urban centres of early Mesopotamia and illuminating the lives of the people who shaped one of the world's earliest cities.</p><div class="quiet-note"><span>Research partnership</span><p>Led by the University of Cambridge and the University of Pennsylvania.</p></div></div></section>
+
+    <section class="story-panel" id="news"><div class="story-copy news-copy"><span class="eyebrow">News · September 2026</span><article class="news-card"><div class="lo-mark" aria-label="Lombard Odier"><span>17 <b>✣</b> 96</span><strong>LOMBARD ODIER</strong><small>LOMBARD ODIER DARIER HENTSCH</small></div><p class="news-source">Featured by Lombard Odier</p><h2>The Aevora Initiative featured in Lombard Odier’s latest report on next-generation philanthropy.</h2><p>Lombard Odier has just published <i>The Next [Gen] Chapter of Philanthropy</i>, featuring an interview with the founder of The Aevora Initiative.</p><a class="news-link" href="#" aria-label="Read the full Lombard Odier report">Read the full report <span>↗</span></a></article></div></section>
 
     <section class="story-panel contact-panel" id="contact" data-reveal=".25"><div class="story-copy"><span class="eyebrow">Contact</span><h2>For research, philanthropic and partnership enquiries.</h2><a href="mailto:contact@aevorainitiative.org">contact@aevorainitiative.org</a></div></section>
   </main>
-  <footer><div class="brand"><img src="aevora-monogram.png" alt=""><span>the aevora initiative</span></div><div>London · Cambridge</div><div>© <span id="year"></span></div></footer>
-  <script src="script.js"></script>
+  <footer><a class="brand" href="#top" aria-label="The Aevora Initiative home"><img class="brand-mark" src="aevora-monogram.png" alt=""><span class="brand-name">the aevora initiative</span></a><div>London · Cambridge</div><div>© <span id="year"></span></div></footer>
+  <script src="script.js?v=13"></script>
 </body>
 </html>
