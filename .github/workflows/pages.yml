@@ -1,0 +1,47 @@
+name: Deploy Aevora review site
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "script.js"
+      - "robots.txt"
+      - ".github/workflows/pages.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Prepare review build
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site/previews _site/stills
+          cp index.html styles.css script.js robots.txt aevora-monogram.png _site/
+          public_base="https://omajidpour.github.io/aevora-reveal"
+          curl -fsSL "${public_base}/lombard-odier-logo-white.png" -o _site/lombard-odier-logo-white.png
+          curl -fsSL "${public_base}/stills/artefact-01-tablet-v2-covered.png" -o _site/stills/artefact-01-tablet-v2-covered.png
+          curl -fsSL "${public_base}/previews/aevora-1080-continuous-artefact-loop-preview.mp4" -o _site/previews/aevora-1080-continuous-artefact-loop-preview.mp4
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
