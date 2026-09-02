@@ -3,6 +3,7 @@ document.getElementById('main-year').textContent = new Date().getFullYear();
 
 const panels = [...document.querySelectorAll('.story-panel')];
 const backgroundVideo = document.getElementById('background-video');
+const revealStage = document.querySelector('.reveal-stage');
 const menu = document.querySelector('.menu-button');
 const nav = document.querySelector('#site-nav');
 const projectsDropdown = document.querySelector('.nav-dropdown');
@@ -50,11 +51,16 @@ nav.addEventListener('click', (event) => {
 function playBackground() {
   if (reducedMotion) {
     backgroundVideo.pause();
+    revealStage.classList.remove('video-ready');
     return;
   }
 
   const playback = backgroundVideo.play();
-  if (playback) playback.catch(() => {});
+  if (playback) {
+    playback.catch(() => {
+      revealStage.classList.remove('video-ready');
+    });
+  }
 }
 
 function resumeBackground() {
@@ -86,6 +92,12 @@ function requestRender() {
 
 backgroundVideo.addEventListener('canplay', playBackground, { once: true });
 backgroundVideo.addEventListener('loadedmetadata', playBackground, { once: true });
+backgroundVideo.addEventListener('playing', () => {
+  revealStage.classList.add('video-ready');
+});
+backgroundVideo.addEventListener('pause', () => {
+  if (!backgroundVideo.ended) revealStage.classList.remove('video-ready');
+});
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) playBackground();
 });
