@@ -9,6 +9,7 @@ on:
       - "styles.css"
       - "script.js"
       - "robots.txt"
+      - "og-aevora.jpg"
       - ".github/workflows/pages.yml"
 
 permissions:
@@ -33,7 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site/previews _site/stills
-          cp index.html styles.css script.js robots.txt aevora-monogram.png _site/
+          cp index.html styles.css script.js robots.txt aevora-monogram.png og-aevora.jpg _site/
           public_base="https://omajidpour.github.io/aevora-reveal"
           curl -fsSL "${public_base}/lombard-odier-logo-white.png" -o _site/lombard-odier-logo-white.png
           curl -fsSL "${public_base}/stills/artefact-01-tablet-v2-covered.png" -o _site/stills/artefact-01-tablet-v2-covered.png
