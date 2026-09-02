@@ -66,10 +66,12 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 1;
+  opacity: 0;
+  transition: opacity .2s ease;
   transform: scale(1.13) translateZ(0);
   backface-visibility: hidden;
 }
+.reveal-stage.video-ready .motion-video { opacity: 1; }
 .motion-video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
 .reveal-shade {
   position: absolute;
