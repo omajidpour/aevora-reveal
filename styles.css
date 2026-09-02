@@ -1,5 +1,6 @@
 /opt/homebrew/Library/Homebrew/cmd/shellenv.sh: line 18: /bin/ps: Operation not permitted
 :root {
+  color-scheme: only light;
   --ink: #fbf7ef;
   --paper: #f5f0e6;
   --brass: #d7ad61;
@@ -28,6 +29,7 @@ body {
   align-items: center;
   padding: 27px 4.5vw;
   background: transparent;
+  color: #fbf7ef;
 }
 .brand { display: inline-flex; align-items: center; gap: 9px; color: inherit; text-decoration: none; letter-spacing: .02em; }
 .brand-mark {
@@ -40,7 +42,7 @@ body {
 }
 .brand-name { font-family: 'Libre Caslon Display', serif; font-size: 19px; line-height: 1; letter-spacing: .015em; text-transform: lowercase; }
 .site-header nav { display: flex; align-items: center; gap: 38px; }
-.site-header nav a, .menu-button, .projects-link { color: inherit; text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font: 500 9px 'DM Sans', sans-serif; }
+.site-header nav a, .menu-button, .projects-link { color: #fbf7ef; -webkit-text-fill-color: #fbf7ef; text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font: 500 9px 'DM Sans', sans-serif; }
 .nav-dropdown { position: relative; display: flex; align-items: center; }
 .projects-link { display: block; padding: 0; border: 0; background: none; cursor: pointer; }
 .dropdown-menu { position: absolute; top: calc(100% + 13px); left: 50%; min-width: 178px; padding: 8px; background: rgba(45, 35, 25, .88); border: 1px solid rgba(255, 250, 241, .17); opacity: 0; visibility: hidden; transform: translate(-50%, -5px); transition: opacity .2s ease, transform .2s ease, visibility .2s; backdrop-filter: blur(14px); box-shadow: 0 14px 38px rgba(30, 22, 14, .2); }
@@ -78,7 +80,7 @@ body {
 }
 
 .story-panel { position: relative; z-index: 5; min-height: 105svh; display: flex; align-items: center; padding: 130px 47vw 120px 6vw; }
-.story-copy { width: min(660px, 100%); opacity: .16; transform: translateY(30px); transition: opacity .5s ease, transform .65s cubic-bezier(.2, .7, .2, 1); text-shadow: 0 1px 24px rgba(30, 22, 14, .38); }
+.story-copy { width: min(660px, 100%); color: #fbf7ef; -webkit-text-fill-color: currentColor; opacity: .16; transform: translateY(30px); transition: opacity .5s ease, transform .65s cubic-bezier(.2, .7, .2, 1); text-shadow: 0 1px 24px rgba(30, 22, 14, .38); }
 .story-panel:not(.hero-panel) { min-height: 108svh; }
 .story-panel.is-active .story-copy, .hero-panel .story-copy { opacity: 1; transform: none; }
 .hero-panel { min-height: 100svh; }
@@ -118,7 +120,7 @@ body {
 .scroll-cue i { position: relative; width: 36px; height: 1px; background: var(--brass); }
 .scroll-cue i::after { content: ''; position: absolute; right: 0; top: -3px; width: 6px; height: 6px; border-right: 1px solid var(--brass); border-bottom: 1px solid var(--brass); transform: rotate(-45deg); }
 .site-copyright { position: fixed; z-index: 6; right: 4.5vw; bottom: 5vh; color: rgba(255, 250, 241, .72); text-transform: uppercase; letter-spacing: .16em; font-size: 8px; font-weight: 500; text-shadow: 0 1px 16px rgba(30, 22, 14, .32); pointer-events: none; }
-footer { position: relative; z-index: 7; display: grid; grid-template-columns: 1fr auto auto; gap: 60px; align-items: center; padding: 39px 5vw; color: var(--footer-ink); background: rgba(244, 238, 226, .95); border-top: 1px solid var(--line); font-size: 11px; }
+footer { position: relative; z-index: 7; display: grid; grid-template-columns: 1fr auto auto; gap: 60px; align-items: center; padding: 39px 5vw; color: var(--footer-ink); -webkit-text-fill-color: var(--footer-ink); background: rgba(244, 238, 226, .95); border-top: 1px solid var(--line); font-size: 11px; }
 footer .brand-name { font-size: 18px; }
 footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(100%) invert(56%) sepia(20%) saturate(849%) hue-rotate(359deg) brightness(92%); }
 
