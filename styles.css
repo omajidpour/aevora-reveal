@@ -1,7 +1,9 @@
+/opt/homebrew/Library/Homebrew/cmd/shellenv.sh: line 18: /bin/ps: Operation not permitted
 :root {
-  --ink: #292722;
+  --ink: #fbf7ef;
   --paper: #f5f0e6;
-  --brass: #80623b;
+  --brass: #d7ad61;
+  --footer-ink: #292722;
   --line: rgba(41, 39, 34, .16);
 }
 
@@ -25,12 +27,27 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 27px 4.5vw;
-  background: linear-gradient(180deg, rgba(232, 219, 195, .56), transparent);
+  background: transparent;
 }
-.brand { display: flex; align-items: center; gap: 15px; color: inherit; text-decoration: none; font-size: 16px; }
-.brand img { width: 44px; height: 44px; object-fit: contain; }
-.site-header nav { display: flex; gap: 38px; }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: inherit; text-decoration: none; letter-spacing: .02em; }
+.brand-mark {
+  display: block;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.brand-name { font-family: 'Libre Caslon Display', serif; font-size: 19px; line-height: 1; letter-spacing: .015em; text-transform: lowercase; }
+.site-header nav { display: flex; align-items: center; gap: 38px; }
 .site-header nav a, .menu-button { color: inherit; text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font: 500 9px 'DM Sans', sans-serif; }
+.nav-dropdown { position: relative; display: flex; align-items: center; }
+.projects-link { display: block; }
+.dropdown-menu { position: absolute; top: calc(100% + 13px); left: 50%; min-width: 178px; padding: 8px; background: rgba(45, 35, 25, .88); border: 1px solid rgba(255, 250, 241, .17); opacity: 0; visibility: hidden; transform: translate(-50%, -5px); transition: opacity .2s ease, transform .2s ease, visibility .2s; backdrop-filter: blur(14px); box-shadow: 0 14px 38px rgba(30, 22, 14, .2); }
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.dropdown-menu a { display: flex; flex-direction: column; gap: 4px; padding: 11px 12px; text-transform: none !important; letter-spacing: 0 !important; }
+.dropdown-menu strong { font-family: 'Libre Caslon Display', serif; font-size: 17px; font-weight: 400; }
+.dropdown-menu small { color: var(--brass); text-transform: uppercase; letter-spacing: .16em; font-size: 7px; }
 .menu-button { display: none; border: 0; background: none; padding: 10px; }
 
 .reveal-stage {
@@ -38,7 +55,7 @@ body {
   z-index: 0;
   inset: 0;
   overflow: hidden;
-  background: #d8c7a8 url('aevora-revealed.jpg') center / cover no-repeat;
+  background: #b5946a url('stills/artefact-01-tablet-v2-covered.png') center / cover no-repeat;
   pointer-events: none;
 }
 .motion-video {
@@ -48,67 +65,90 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0;
-  transition: opacity .18s linear;
-  will-change: opacity;
+  opacity: 1;
+  transform: scale(1.13) translateZ(0);
+  backface-visibility: hidden;
 }
-.motion-video.is-visible { opacity: 1; }
 .reveal-shade {
   position: absolute;
   z-index: 3;
   inset: 0;
-  background: linear-gradient(90deg, rgba(235, 221, 194, .72), rgba(235, 221, 194, .46) 31%, rgba(235, 221, 194, .08) 58%, transparent 80%), linear-gradient(0deg, rgba(45, 37, 25, .05), transparent 35%);
+  background: linear-gradient(90deg, rgba(42, 31, 20, .47), rgba(42, 31, 20, .27) 34%, rgba(42, 31, 20, .04) 64%, transparent 82%), linear-gradient(0deg, rgba(26, 20, 14, .34), transparent 38%);
 }
 
-.story-panel { position: relative; z-index: 5; min-height: 105svh; display: flex; align-items: center; padding: 130px 53vw 120px 6vw; }
-.story-copy { width: min(610px, 100%); opacity: .16; transform: translateY(30px); transition: opacity .5s ease, transform .65s cubic-bezier(.2, .7, .2, 1); text-shadow: 0 1px 22px rgba(244, 230, 204, .42); }
+.story-panel { position: relative; z-index: 5; min-height: 105svh; display: flex; align-items: center; padding: 130px 47vw 120px 6vw; }
+.story-copy { width: min(660px, 100%); opacity: .16; transform: translateY(30px); transition: opacity .5s ease, transform .65s cubic-bezier(.2, .7, .2, 1); text-shadow: 0 1px 24px rgba(30, 22, 14, .38); }
+.story-panel:not(.hero-panel) { min-height: 108svh; }
 .story-panel.is-active .story-copy, .hero-panel .story-copy { opacity: 1; transform: none; }
 .hero-panel { min-height: 100svh; }
 .story-copy h1, .story-copy h2 { margin: 0; font-family: 'Libre Caslon Display', serif; font-weight: 400; letter-spacing: -.026em; }
 .story-copy h1 { font-size: clamp(49px, 5vw, 78px); line-height: 1.03; }
 .story-copy h2 { font-size: clamp(39px, 4.1vw, 62px); line-height: 1.07; }
-.story-copy > p { max-width: 540px; font-size: 15px; line-height: 1.75; }
+.story-copy > p { max-width: 620px; font-size: 15px; line-height: 1.75; }
 .rule { display: block; width: 42px; height: 1px; margin: 31px 0; background: var(--brass); }
 .eyebrow { display: block; margin-bottom: 30px; color: var(--brass); text-transform: uppercase; letter-spacing: .21em; font-size: 9px; font-weight: 500; }
-.quiet-note { max-width: 530px; margin-top: 36px; padding-top: 21px; border-top: 1px solid rgba(40, 38, 32, .22); font-size: 13px; line-height: 1.7; }
+.quiet-note { max-width: 530px; margin-top: 36px; padding-top: 21px; border-top: 1px solid rgba(255, 250, 241, .28); font-size: 13px; line-height: 1.7; }
 .quiet-note span { color: var(--brass); text-transform: uppercase; letter-spacing: .17em; font-size: 9px; }
 .closing { margin-top: 27px; color: var(--brass); font-family: 'Libre Caslon Display', serif; font-size: 23px !important; }
-.approach-list > div { display: grid; grid-template-columns: 31px 118px 1fr; gap: 14px; padding: 17px 0; border-top: 1px solid rgba(40, 38, 32, .2); }
+.about-panel .quiet-note { margin-top: 26px; padding-top: 16px; }
+.about-panel .closing { margin-top: 18px; }
+.approach-list > div { display: grid; grid-template-columns: 31px 118px 1fr; gap: 14px; padding: 17px 0; border-top: 1px solid rgba(255, 250, 241, .26); }
 .approach-list span { padding-top: 7px; color: var(--brass); font-size: 9px; }
 .approach-list h3 { margin: 0; font-family: 'Libre Caslon Display', serif; font-size: 23px; font-weight: 400; }
 .approach-list p { margin: 4px 0; font-size: 12px; line-height: 1.55; }
 .founder-copy > p { font-size: 14px; }
 .location { color: var(--brass); font-family: 'Libre Caslon Display', serif; font-size: 23px !important; }
+.news-copy { max-width: 650px; }
+.news-card { padding-top: 24px; border-top: 1px solid rgba(255, 250, 241, .3); }
+.lo-mark { width: 132px; height: 76px; margin: 0 0 22px; background: url('lombard-odier-logo-white.png') center / contain no-repeat; opacity: .68; filter: drop-shadow(0 1px 12px rgba(30, 22, 14, .16)); }
+.lo-mark > * { display: none; }
+.lo-mark span { margin-bottom: 3px; font-family: Georgia, serif; font-size: 8px; letter-spacing: .16em; }
+.lo-mark span b { padding: 0 5px; font-size: 14px; font-weight: 400; }
+.lo-mark strong { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: -.05em; }
+.lo-mark small { margin-top: 3px; font-family: Georgia, serif; font-size: 5px; font-weight: 700; letter-spacing: .2em; }
+.news-source, .news-credit { color: var(--brass); text-transform: uppercase; letter-spacing: .18em; font-size: 9px !important; font-weight: 500; }
+.news-card h2 { margin: 12px 0 23px; }
+.news-card h2 { font-size: clamp(31px, 3.25vw, 49px); line-height: 1.08; }
+.news-card > p:not(.news-source):not(.news-credit) { max-width: 590px; font-size: 14px; line-height: 1.72; }
+.news-credit { margin-top: 27px; }
+.news-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 16px; padding-bottom: 6px; color: var(--brass); border-bottom: 1px solid currentColor; text-decoration: none; text-transform: uppercase; letter-spacing: .16em; font-size: 9px; font-weight: 500; }
 .contact-panel a { color: var(--brass); font-size: 17px; }
 .scroll-cue { position: absolute; left: 6vw; bottom: 6vh; display: flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font-size: 9px; font-weight: 500; }
 .scroll-cue i { position: relative; width: 36px; height: 1px; background: var(--brass); }
 .scroll-cue i::after { content: ''; position: absolute; right: 0; top: -3px; width: 6px; height: 6px; border-right: 1px solid var(--brass); border-bottom: 1px solid var(--brass); transform: rotate(-45deg); }
-footer { position: relative; z-index: 7; display: grid; grid-template-columns: 1fr auto auto; gap: 60px; align-items: center; padding: 39px 5vw; background: rgba(244, 238, 226, .95); border-top: 1px solid var(--line); font-size: 11px; }
-footer .brand { font-size: 14px; }
-footer .brand img { width: 38px; height: 38px; }
+.site-copyright { position: fixed; z-index: 6; right: 4.5vw; bottom: 5vh; color: rgba(255, 250, 241, .72); text-transform: uppercase; letter-spacing: .16em; font-size: 8px; font-weight: 500; text-shadow: 0 1px 16px rgba(30, 22, 14, .32); pointer-events: none; }
+footer { position: relative; z-index: 7; display: grid; grid-template-columns: 1fr auto auto; gap: 60px; align-items: center; padding: 39px 5vw; color: var(--footer-ink); background: rgba(244, 238, 226, .95); border-top: 1px solid var(--line); font-size: 11px; }
+footer .brand-name { font-size: 18px; }
+footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(100%) invert(56%) sepia(20%) saturate(849%) hue-rotate(359deg) brightness(92%); }
 
 @media (max-width: 850px) {
   .site-header { padding: 20px 6vw; }
-  .brand { font-size: 14px; }
-  .brand img { width: 39px; height: 39px; }
+  .brand-name { font-size: 17px; }
+  .brand-mark { width: 31px; height: 31px; }
   .menu-button { display: block; }
-  .site-header nav { position: absolute; top: 74px; right: 5vw; display: none; flex-direction: column; gap: 0; padding: 12px 18px; background: rgba(239, 228, 208, .96); box-shadow: 0 12px 40px rgba(48, 38, 24, .12); }
+  .site-header nav { position: absolute; top: 74px; right: 5vw; display: none; flex-direction: column; gap: 0; padding: 12px 18px; background: rgba(49, 37, 25, .92); box-shadow: 0 12px 40px rgba(48, 38, 24, .22); }
   .site-header nav.is-open { display: flex; }
   .site-header nav a { padding: 12px; }
-  .motion-video { object-position: 61% center; }
-  .reveal-shade { background: linear-gradient(90deg, rgba(235, 221, 194, .84), rgba(235, 221, 194, .58) 66%, rgba(235, 221, 194, .16)); }
+  .nav-dropdown { display: flex; flex-direction: column; }
+  .nav-dropdown .projects-link { padding-bottom: 7px; }
+  .dropdown-menu { position: static; min-width: 0; padding: 0 0 7px 12px; background: none; border: 0; opacity: 1; visibility: visible; transform: none; backdrop-filter: none; box-shadow: none; }
+  .dropdown-menu a { padding: 7px 12px 12px; }
+  .motion-video { object-position: 70% center; }
+  .reveal-shade { background: linear-gradient(90deg, rgba(36, 27, 19, .58), rgba(36, 27, 19, .34) 66%, rgba(36, 27, 19, .12)); }
   .story-panel { min-height: 100svh; padding: 122px 8vw 100px; }
+  .story-panel:not(.hero-panel) { min-height: 105svh; }
   .story-copy { max-width: 570px; }
   .story-copy h1 { font-size: clamp(43px, 11vw, 53px); }
   .story-copy h2 { font-size: clamp(36px, 9.5vw, 46px); }
   .approach-list > div { grid-template-columns: 27px 101px 1fr; }
   .scroll-cue { left: 8vw; }
+  .site-copyright { right: 8vw; bottom: 3vh; font-size: 7px; }
   footer { grid-template-columns: 1fr; gap: 17px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .motion-video { display: none; }
-  .reveal-stage { background-image: url('aevora-revealed.jpg'); }
+  .reveal-stage { background-image: url('stills/artefact-01-tablet-v2-covered.png'); }
   .story-copy { transition: none; }
 }
