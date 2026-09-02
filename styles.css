@@ -141,7 +141,23 @@ footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(1
   .reveal-shade { background: linear-gradient(90deg, rgba(36, 27, 19, .58), rgba(36, 27, 19, .34) 66%, rgba(36, 27, 19, .12)); }
   .story-panel { min-height: 100svh; padding: 122px 8vw 100px; }
   .story-panel:not(.hero-panel) { min-height: 105svh; }
-  .story-copy { max-width: 570px; }
+  .story-copy {
+    max-width: 570px;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+    color: #fbf7ef;
+    -webkit-text-fill-color: #fbf7ef;
+  }
+  .story-copy .eyebrow,
+  .story-copy .quiet-note span,
+  .story-copy .closing,
+  .story-copy .location,
+  .story-copy .approach-list span,
+  .story-copy .news-source,
+  .story-copy .news-credit,
+  .story-copy .news-link,
+  .contact-panel .story-copy a { -webkit-text-fill-color: var(--brass); }
   .story-copy h1 { font-size: clamp(43px, 11vw, 53px); }
   .story-copy h2 { font-size: clamp(36px, 9.5vw, 46px); }
   .approach-list > div { grid-template-columns: 27px 101px 1fr; }
