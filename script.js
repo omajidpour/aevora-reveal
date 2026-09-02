@@ -1,4 +1,3 @@
-/opt/homebrew/Library/Homebrew/cmd/shellenv.sh: line 18: /bin/ps: Operation not permitted
 document.getElementById('year').textContent = new Date().getFullYear();
 document.getElementById('main-year').textContent = new Date().getFullYear();
 
