@@ -1,4 +1,3 @@
-/opt/homebrew/Library/Homebrew/cmd/shellenv.sh: line 18: /bin/ps: Operation not permitted
 :root {
   color-scheme: only light;
   --ink: #fbf7ef;
@@ -79,11 +78,11 @@ body {
   background: linear-gradient(90deg, rgba(42, 31, 20, .47), rgba(42, 31, 20, .27) 34%, rgba(42, 31, 20, .04) 64%, transparent 82%), linear-gradient(0deg, rgba(26, 20, 14, .34), transparent 38%);
 }
 
-.story-panel { position: relative; z-index: 5; min-height: 105svh; display: flex; align-items: center; padding: 130px 47vw 120px 6vw; }
+.story-panel { position: relative; z-index: 5; min-height: 105vh; min-height: 105svh; display: flex; align-items: center; padding: 130px 47vw 120px 6vw; }
 .story-copy { width: min(660px, 100%); color: #fbf7ef; -webkit-text-fill-color: currentColor; opacity: .16; transform: translateY(30px); transition: opacity .5s ease, transform .65s cubic-bezier(.2, .7, .2, 1); text-shadow: 0 1px 24px rgba(30, 22, 14, .38); }
-.story-panel:not(.hero-panel) { min-height: 108svh; }
+.story-panel:not(.hero-panel) { min-height: 108vh; min-height: 108svh; }
 .story-panel.is-active .story-copy, .hero-panel .story-copy { opacity: 1; transform: none; }
-.hero-panel { min-height: 100svh; }
+.hero-panel { min-height: 100vh; min-height: 100svh; }
 .story-copy h1, .story-copy h2 { margin: 0; font-family: 'Libre Caslon Display', serif; font-weight: 400; letter-spacing: -.026em; }
 .story-copy h1 { font-size: clamp(49px, 5vw, 78px); line-height: 1.03; }
 .story-copy h2 { font-size: clamp(39px, 4.1vw, 62px); line-height: 1.07; }
@@ -129,7 +128,7 @@ footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(1
   .brand-name { font-size: 17px; }
   .brand-mark { width: 31px; height: 31px; }
   .menu-button { position: relative; z-index: 51; display: block; }
-  .site-header nav { position: fixed; z-index: 50; inset: 0; display: none; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; width: 100%; min-height: 100vh; min-height: 100svh; padding: 96px 9vw 64px; background: rgba(43, 33, 24, .96); box-shadow: none; backdrop-filter: blur(18px); }
+  .site-header nav { position: fixed; z-index: 50; inset: 0; display: none; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; width: 100%; min-height: 100vh; min-height: 100svh; padding: 96px 9vw 64px; background: rgba(43, 33, 24, .96); box-shadow: none; -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
   .site-header nav.is-open { display: flex; }
   .site-header nav > a, .site-header nav .projects-link { width: 100%; padding: 13px 0; font-family: 'Libre Caslon Display', serif; font-size: 30px; font-weight: 400; letter-spacing: 0; text-align: left; text-transform: none; }
   .nav-dropdown { display: flex; flex-direction: column; width: 100%; align-items: flex-start; }
@@ -139,8 +138,8 @@ footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(1
   .dropdown-menu a { padding: 7px 12px 12px; }
   .motion-video { object-position: 70% center; }
   .reveal-shade { background: linear-gradient(90deg, rgba(36, 27, 19, .58), rgba(36, 27, 19, .34) 66%, rgba(36, 27, 19, .12)); }
-  .story-panel { min-height: 100svh; padding: 122px 8vw 100px; }
-  .story-panel:not(.hero-panel) { min-height: 105svh; }
+  .story-panel { min-height: 100vh; min-height: 100svh; padding: 122px 8vw 100px; }
+  .story-panel:not(.hero-panel) { min-height: 105vh; min-height: 105svh; }
   .story-copy {
     max-width: 570px;
     opacity: 1 !important;
