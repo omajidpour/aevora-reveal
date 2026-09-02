@@ -130,14 +130,14 @@ footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(1
   .brand-name { font-size: 17px; }
   .brand-mark { width: 31px; height: 31px; }
   .menu-button { position: relative; z-index: 51; display: block; }
-  .site-header nav { position: fixed; z-index: 50; inset: 0; display: none; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; width: 100%; min-height: 100vh; min-height: 100svh; padding: 96px 9vw 64px; background: rgba(43, 33, 24, .96); box-shadow: none; -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+  .site-header nav { position: fixed; z-index: 50; top: 67px; right: 5vw; bottom: auto; left: auto; display: none; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; width: min(250px, 90vw); min-height: 0; padding: 13px 18px 15px; background: rgba(43, 33, 24, .92); border: 1px solid rgba(255, 250, 241, .16); box-shadow: 0 16px 42px rgba(25, 18, 12, .24); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
   .site-header nav.is-open { display: flex; }
-  .site-header nav > a, .site-header nav .projects-link { width: 100%; padding: 13px 0; font-family: 'Libre Caslon Display', serif; font-size: 30px; font-weight: 400; letter-spacing: 0; text-align: left; text-transform: none; }
+  .site-header nav > a, .site-header nav .projects-link { width: 100%; padding: 10px 0; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .15em; text-align: left; text-transform: uppercase; }
   .nav-dropdown { display: flex; flex-direction: column; width: 100%; align-items: flex-start; }
-  .nav-dropdown .projects-link { padding-bottom: 13px; }
-  .dropdown-menu { position: static; display: none; min-width: 0; padding: 0 0 7px 12px; background: none; border: 0; opacity: 1; visibility: visible; transform: none; backdrop-filter: none; box-shadow: none; }
+  .nav-dropdown .projects-link { padding-bottom: 10px; }
+  .dropdown-menu { position: static; display: none; min-width: 0; padding: 0 0 5px 8px; background: none; border: 0; opacity: 1; visibility: visible; transform: none; backdrop-filter: none; box-shadow: none; }
   .nav-dropdown.is-open .dropdown-menu { display: block; transform: none; }
-  .dropdown-menu a { padding: 7px 12px 12px; }
+  .dropdown-menu a { padding: 5px 8px 10px; }
   .motion-video { object-position: 70% center; }
   .reveal-shade { background: linear-gradient(90deg, rgba(36, 27, 19, .58), rgba(36, 27, 19, .34) 66%, rgba(36, 27, 19, .12)); }
   .story-panel { min-height: 100vh; min-height: 100svh; padding: 122px 8vw 100px; }
