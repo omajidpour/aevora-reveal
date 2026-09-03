@@ -6,6 +6,7 @@ const backgroundVideo = document.getElementById('background-video');
 const revealStage = document.querySelector('.reveal-stage');
 const menu = document.querySelector('.menu-button');
 const nav = document.querySelector('#site-nav');
+const siteHeader = document.querySelector('.site-header');
 const projectsDropdown = document.querySelector('.nav-dropdown');
 const projectsButton = document.querySelector('.projects-link');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -69,11 +70,27 @@ function resumeBackground() {
 
 function render() {
   const focus = innerHeight * .5;
+  const mobileHeaderEdge = innerWidth <= 850
+    ? siteHeader.getBoundingClientRect().bottom + 8
+    : 0;
   let nearest = Infinity;
   let nextActiveIndex = 0;
 
   panels.forEach((panel, index) => {
     const rect = panel.getBoundingClientRect();
+    const copy = panel.querySelector('.story-copy');
+    if (copy) {
+      if (mobileHeaderEdge) {
+        const copyRect = copy.getBoundingClientRect();
+        const clippedTop = Math.max(0, Math.min(copyRect.height, mobileHeaderEdge - copyRect.top));
+        const clip = `inset(${clippedTop}px 0 0 0)`;
+        copy.style.clipPath = clip;
+        copy.style.webkitClipPath = clip;
+      } else {
+        copy.style.clipPath = '';
+        copy.style.webkitClipPath = '';
+      }
+    }
     const distance = Math.abs(rect.top + rect.height * .5 - focus);
     if (distance < nearest) {
       nearest = distance;
