@@ -61,9 +61,7 @@ function resumeBackground() {
 
 function render() {
   const focus = innerHeight * .5;
-  const mobileHeaderEdge = innerWidth <= 850
-    ? siteHeader.getBoundingClientRect().bottom + 8
-    : 0;
+  const headerEdge = siteHeader.getBoundingClientRect().bottom + 8;
   let nearest = Infinity;
   let nextActiveIndex = 0;
 
@@ -71,16 +69,11 @@ function render() {
     const rect = panel.getBoundingClientRect();
     const copy = panel.querySelector('.story-copy');
     if (copy) {
-      if (mobileHeaderEdge) {
-        const copyRect = copy.getBoundingClientRect();
-        const clippedTop = Math.max(0, Math.min(copyRect.height, mobileHeaderEdge - copyRect.top));
-        const clip = `inset(${clippedTop}px 0 0 0)`;
-        copy.style.clipPath = clip;
-        copy.style.webkitClipPath = clip;
-      } else {
-        copy.style.clipPath = '';
-        copy.style.webkitClipPath = '';
-      }
+      const copyRect = copy.getBoundingClientRect();
+      const clippedTop = Math.max(0, Math.min(copyRect.height, headerEdge - copyRect.top));
+      const clip = `inset(${clippedTop}px 0 0 0)`;
+      copy.style.clipPath = clip;
+      copy.style.webkitClipPath = clip;
     }
     const distance = Math.abs(rect.top + rect.height * .5 - focus);
     if (distance < nearest) {
