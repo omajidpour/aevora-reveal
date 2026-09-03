@@ -104,7 +104,7 @@ body {
 .location { color: var(--brass); font-family: 'Libre Caslon Display', serif; font-size: 23px !important; }
 .news-copy { max-width: 650px; }
 .news-card { padding-top: 24px; border-top: 1px solid rgba(255, 250, 241, .3); }
-.lo-mark { width: 132px; height: 76px; margin: 0 0 22px; background: url('lombard-odier-logo-white.png') center / contain no-repeat; opacity: .68; filter: drop-shadow(0 1px 12px rgba(30, 22, 14, .16)); }
+.lo-mark { width: 96px; height: 48px; margin: 2px 0 0; background: url('lombard-odier-logo-white.png') left center / contain no-repeat; opacity: .56; filter: drop-shadow(0 1px 12px rgba(30, 22, 14, .12)); }
 .lo-mark > * { display: none; }
 .lo-mark span { margin-bottom: 3px; font-family: Georgia, serif; font-size: 8px; letter-spacing: .16em; }
 .lo-mark span b { padding: 0 5px; font-size: 14px; font-weight: 400; }
@@ -115,6 +115,8 @@ body {
 .news-card h2 { font-size: clamp(31px, 3.25vw, 49px); line-height: 1.08; }
 .news-card > p:not(.news-source):not(.news-credit) { max-width: 590px; font-size: 14px; line-height: 1.72; }
 .news-credit { margin-top: 27px; }
+.featured-lockup { display: flex; align-items: center; gap: 18px; margin-top: 25px; }
+.featured-lockup > span { color: var(--brass); text-transform: uppercase; letter-spacing: .18em; font-size: 8px; font-weight: 500; }
 .news-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 16px; padding-bottom: 6px; color: var(--brass); border-bottom: 1px solid currentColor; text-decoration: none; text-transform: uppercase; letter-spacing: .16em; font-size: 9px; font-weight: 500; }
 .contact-panel a { color: var(--brass); font-size: 17px; }
 .scroll-cue { position: absolute; left: 6vw; bottom: 6vh; display: flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font-size: 9px; font-weight: 500; }
