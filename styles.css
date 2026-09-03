@@ -44,7 +44,7 @@ body {
 .site-header nav a, .menu-button, .projects-link { color: #fbf7ef; -webkit-text-fill-color: #fbf7ef; text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font: 500 9px 'DM Sans', sans-serif; }
 .nav-dropdown { position: relative; display: flex; align-items: center; }
 .projects-link { display: block; padding: 0; border: 0; background: none; cursor: pointer; }
-.dropdown-menu { position: absolute; top: calc(100% + 13px); left: 50%; min-width: 178px; padding: 8px; background: rgba(45, 35, 25, .88); border: 1px solid rgba(255, 250, 241, .17); opacity: 0; visibility: hidden; transform: translate(-50%, -5px); transition: opacity .2s ease, transform .2s ease, visibility .2s; backdrop-filter: blur(14px); box-shadow: 0 14px 38px rgba(30, 22, 14, .2); }
+.dropdown-menu { position: absolute; top: calc(100% + 13px); left: 50%; min-width: 178px; padding: 8px; background: rgba(45, 35, 25, .88); border: 1px solid rgba(255, 250, 241, .17); opacity: 0; visibility: hidden; transform: translate(-50%, 0); transition: opacity .2s ease, visibility .2s; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 14px 38px rgba(30, 22, 14, .2); }
 .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu, .nav-dropdown.is-open .dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
 .dropdown-menu a { display: flex; flex-direction: column; gap: 4px; padding: 11px 12px; text-transform: none !important; letter-spacing: 0 !important; }
 .dropdown-menu strong { font-family: 'Libre Caslon Display', serif; font-size: 17px; font-weight: 400; }
@@ -160,8 +160,6 @@ footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(1
 
 @media (hover: none), (pointer: coarse) {
   .story-copy { opacity: 1; transform: none; }
-  .nav-dropdown:hover .dropdown-menu { opacity: 0; visibility: hidden; transform: translate(-50%, -5px); }
-  .nav-dropdown.is-open .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
