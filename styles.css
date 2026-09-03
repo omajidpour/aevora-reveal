@@ -126,7 +126,12 @@ footer .brand-name { font-size: 18px; }
 footer .brand-mark { width: 34px; height: 34px; filter: brightness(0) saturate(100%) invert(56%) sepia(20%) saturate(849%) hue-rotate(359deg) brightness(92%); }
 
 @media (max-width: 850px) {
-  .site-header { padding: 20px 6vw; }
+  .site-header {
+    padding: 20px 6vw;
+    background: linear-gradient(180deg, rgba(55, 42, 29, .78) 0%, rgba(55, 42, 29, .58) 72%, rgba(55, 42, 29, 0) 100%);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
   .brand-name { font-size: 17px; }
   .brand-mark { width: 31px; height: 31px; }
   .menu-button { position: relative; z-index: 51; display: block; }
