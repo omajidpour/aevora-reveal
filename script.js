@@ -1,5 +1,5 @@
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('main-year').textContent = new Date().getFullYear();
+const mainYear = document.getElementById('main-year');
+if (mainYear) mainYear.textContent = new Date().getFullYear();
 
 const panels = [...document.querySelectorAll('.story-panel')];
 const backgroundVideo = document.getElementById('background-video');
@@ -9,9 +9,27 @@ const nav = document.querySelector('#site-nav');
 const siteHeader = document.querySelector('.site-header');
 const projectsDropdown = document.querySelector('.nav-dropdown');
 const projectsButton = document.querySelector('.projects-link');
+const privacyLink = document.getElementById('privacy-link');
+const privacyDialog = document.getElementById('privacy-dialog');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let frame = 0;
+
+privacyLink.addEventListener('click', (event) => {
+  if (typeof privacyDialog.showModal !== 'function') return;
+  event.preventDefault();
+  const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+  document.documentElement.style.scrollBehavior = 'auto';
+  history.replaceState(null, '', `${location.pathname}${location.search}#top`);
+  window.scrollTo(0, 0);
+  document.documentElement.style.scrollBehavior = previousScrollBehavior;
+  backgroundVideo.play().catch(() => {});
+  privacyDialog.showModal();
+});
+
+privacyDialog.addEventListener('click', (event) => {
+  if (event.target === privacyDialog) privacyDialog.close();
+});
 
 backgroundVideo.muted = true;
 backgroundVideo.defaultMuted = true;

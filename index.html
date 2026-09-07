@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="stills/artefact-01-tablet-v2-covered.png" fetchpriority="high">
   <link rel="preload" as="video" href="previews/aevora-1080-continuous-artefact-loop-preview.mp4" type="video/mp4">
-  <link rel="stylesheet" href="styles.css?v=33">
+  <link rel="stylesheet" href="styles.css?v=38">
   <script async src="https://plausible.io/js/pa-ea0xx8mnbcQlROF3PnJ3m.js"></script>
   <script>
     window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments); };
@@ -76,7 +76,7 @@
       </video>
       <div class="reveal-shade"></div>
     </div>
-    <div class="site-copyright">© <span id="main-year"></span> The Aevora Initiative. All rights reserved.</div>
+    <div class="site-copyright">© <span id="main-year"></span> The Aevora Initiative. All rights reserved. <a id="privacy-link" href="privacy.html">Privacy</a></div>
 
     <section class="story-panel hero-panel">
       <div class="story-copy">
@@ -91,11 +91,23 @@
 
     <section class="story-panel" id="research" data-video-end="30"><div class="story-copy"><span class="eyebrow">Projects</span><h2>Supporting research. Unlocking discovery.</h2><p>Aevora identifies high-impact, academically rigorous archaeological projects where additional support can unlock a meaningful next stage of discovery.</p><p>Our aim is to help provide the patient funding, partnerships and public visibility that allow exceptional projects to progress beyond conventional constraints.</p><div class="quiet-note"><span>What we aim to unlock</span><p>New fieldwork, specialist analysis, emerging technologies, the publication of discoveries and wider engagement with the histories they reveal.</p></div></div></section>
 
-    <section class="story-panel" id="lagash" data-video-end="35.9"><div class="story-copy"><span class="eyebrow">First project</span><h2>Ancient Sumerians</h2><p class="location">Lagash, Southern Mesopotamia (3rd millennium BC)</p><p>The first project Aevora is developing support around is the Lagash Archaeological Project, which investigates Lagash, one of the earliest and most important city-states of ancient Sumer and one of the world’s first urban civilisations.</p><div class="quiet-note"><span>Research leadership</span><p>Led by the University of Cambridge and the University of Pennsylvania.</p></div></div></section>
+    <section class="story-panel" id="lagash" data-video-end="35.9"><div class="story-copy"><span class="eyebrow">First project</span><h2>Ancient Sumerians</h2><p class="location">Lagash, Southern Mesopotamia (3rd millennium BCE)</p><p>The first project Aevora is developing support around is the Lagash Archaeological Project, which investigates Lagash, one of the earliest and most important city-states of ancient Sumer and one of the world’s first urban civilisations, dating back to the 3rd millennium BCE.</p><div class="quiet-note"><span>Research leadership</span><p>Led by the University of Cambridge and the University of Pennsylvania.</p></div></div></section>
 
     <section class="story-panel contact-panel" id="contact" data-reveal=".25"><div class="story-copy"><span class="eyebrow">Contact</span><h2>For research, philanthropic and partnership enquiries.</h2><a class="plausible-event-name--Contact+Email+Click" href="mailto:contact@aevorainitiative.org">contact@aevorainitiative.org</a></div></section>
   </main>
-  <footer><a class="brand" href="#top" aria-label="The Aevora Initiative home"><img class="brand-mark" src="aevora-monogram.png" alt=""><span class="brand-name">the aevora initiative</span></a><div>London · Cambridge</div><div>© <span id="year"></span> The Aevora Initiative. All rights reserved.</div></footer>
-  <script src="script.js?v=20"></script>
+  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+    <div class="privacy-dialog__panel">
+      <form method="dialog"><button class="privacy-dialog__close" aria-label="Close privacy notice">×</button></form>
+      <div class="privacy-dialog__content">
+        <span class="eyebrow">Privacy</span>
+        <h2 id="privacy-title">Privacy notice</h2>
+        <section><p>The Aevora Initiative respects your privacy.</p></section>
+        <section><p>We receive personal information only when you choose to contact us, such as your name, email address, organisation and the contents of your correspondence. We use this information to respond to enquiries and retain it only for as long as reasonably necessary.</p></section>
+        <section><p>We use Plausible Analytics to measure anonymous, aggregate website usage without cookies or individual visitor profiles.</p></section>
+        <section><p>We do not sell your personal information. To ask us to access, correct or delete information you have sent us, contact <a href="mailto:contact@aevorainitiative.org">contact@aevorainitiative.org</a>.</p></section>
+      </div>
+    </div>
+  </dialog>
+  <script src="script.js?v=23"></script>
 </body>
 </html>
