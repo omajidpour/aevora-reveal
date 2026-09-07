@@ -7,6 +7,7 @@ const revealStage = document.querySelector('.reveal-stage');
 const menu = document.querySelector('.menu-button');
 const nav = document.querySelector('#site-nav');
 const siteHeader = document.querySelector('.site-header');
+const siteCopyright = document.querySelector('.site-copyright');
 const projectsDropdown = document.querySelector('.nav-dropdown');
 const projectsButton = document.querySelector('.projects-link');
 const privacyLink = document.getElementById('privacy-link');
@@ -80,6 +81,7 @@ function resumeBackground() {
 function render() {
   const focus = innerHeight * .5;
   const headerEdge = siteHeader.getBoundingClientRect().bottom + 8;
+  const copyrightEdge = siteCopyright.getBoundingClientRect().top - 8;
   let nearest = Infinity;
   let nextActiveIndex = 0;
 
@@ -89,7 +91,8 @@ function render() {
     if (copy) {
       const copyRect = copy.getBoundingClientRect();
       const clippedTop = Math.max(0, Math.min(copyRect.height, headerEdge - copyRect.top));
-      const clip = `inset(${clippedTop}px 0 0 0)`;
+      const clippedBottom = Math.max(0, Math.min(copyRect.height - clippedTop, copyRect.bottom - copyrightEdge));
+      const clip = `inset(${clippedTop}px 0 ${clippedBottom}px 0)`;
       copy.style.clipPath = clip;
       copy.style.webkitClipPath = clip;
     }

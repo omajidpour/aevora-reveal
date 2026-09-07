@@ -153,6 +153,7 @@ body {
   .nav-dropdown { display: flex; flex-direction: column; width: 100%; align-items: flex-start; }
   .nav-dropdown .projects-link { padding-bottom: 10px; }
   .dropdown-menu { position: static; display: block; min-width: 0; padding: 0 0 5px 8px; background: none; border: 0; opacity: 1; visibility: visible; transform: none; backdrop-filter: none; box-shadow: none; }
+  .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu, .nav-dropdown.is-open .dropdown-menu { transform: none; }
   .dropdown-menu a { padding: 5px 8px 10px; }
   .motion-video { object-position: 70% center; }
   .reveal-shade { background: linear-gradient(90deg, rgba(36, 27, 19, .58), rgba(36, 27, 19, .34) 66%, rgba(36, 27, 19, .12)); }
