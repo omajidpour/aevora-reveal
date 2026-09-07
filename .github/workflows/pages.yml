@@ -37,10 +37,9 @@ jobs:
           mkdir -p _site/previews _site/stills
           cp index.html styles.css script.js robots.txt aevora-monogram.png og-aevora.jpg _site/
           base64 --decode aevora-favicon-white.b64 > _site/aevora-favicon-white.png
-          public_base="https://omajidpour.github.io/aevora-reveal"
-          curl -fsSL "${public_base}/lombard-odier-logo-white.png" -o _site/lombard-odier-logo-white.png
-          curl -fsSL "${public_base}/stills/artefact-01-tablet-v2-covered.png" -o _site/stills/artefact-01-tablet-v2-covered.png
-          curl -fsSL "${public_base}/previews/aevora-1080-continuous-artefact-loop-preview.mp4" -o _site/previews/aevora-1080-continuous-artefact-loop-preview.mp4
+          cp lombard-odier-logo-white.png _site/
+          cp stills/artefact-01-tablet-v2-covered.png _site/stills/
+          cp previews/aevora-1080-continuous-artefact-loop-preview.mp4 _site/previews/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
