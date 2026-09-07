@@ -10,6 +10,7 @@ on:
       - "script.js"
       - "robots.txt"
       - "og-aevora.jpg"
+      - "aevora-favicon-white.b64"
       - ".github/workflows/pages.yml"
 
 permissions:
@@ -35,6 +36,7 @@ jobs:
           set -euo pipefail
           mkdir -p _site/previews _site/stills
           cp index.html styles.css script.js robots.txt aevora-monogram.png og-aevora.jpg _site/
+          base64 --decode aevora-favicon-white.b64 > _site/aevora-favicon-white.png
           public_base="https://omajidpour.github.io/aevora-reveal"
           curl -fsSL "${public_base}/lombard-odier-logo-white.png" -o _site/lombard-odier-logo-white.png
           curl -fsSL "${public_base}/stills/artefact-01-tablet-v2-covered.png" -o _site/stills/artefact-01-tablet-v2-covered.png
