@@ -14,6 +14,8 @@ on:
       - "sitemap.xml"
       - "aevora-monogram.png"
       - "aevora-favicon-white.png"
+      - "aevora-favicon-light.png"
+      - "aevora-favicon-dark.png"
       - "og-aevora.jpg"
       - "lombard-odier-logo-white.png"
       - "stills/artefact-01-tablet-v2-covered.png"
@@ -44,7 +46,7 @@ jobs:
           set -euo pipefail
           mkdir -p _site/previews _site/stills
           cp index.html styles.css script.js privacy.html privacy.css robots.txt sitemap.xml _site/
-          cp aevora-monogram.png aevora-favicon-white.png og-aevora.jpg lombard-odier-logo-white.png _site/
+          cp aevora-monogram.png aevora-favicon-white.png aevora-favicon-light.png aevora-favicon-dark.png og-aevora.jpg lombard-odier-logo-white.png _site/
           cp stills/artefact-01-tablet-v2-covered.png _site/stills/
           cp previews/aevora-1080-continuous-artefact-loop-preview.mp4 _site/previews/
           cp previews/aevora-720-mobile-preview.mp4 _site/previews/
